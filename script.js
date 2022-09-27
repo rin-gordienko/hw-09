@@ -53,3 +53,26 @@ function isWeekend(date) {
 console.log(isWeekend("2022-02-12")); // true
 console.log(isWeekend("2022-02-13")); // true
 console.log(isWeekend("2022-02-09")); // false
+
+// 4. Используя методы для работы с форматом JSON необходимо сделать следующие действия с данным объектом:
+// Преобразовать его к формату JSON строки
+// Преобразовать обратно в формат JS объекта
+// Используя “деструктуризацию” создать переменные с каждым свойством из данного объекта (fullName, street, city, house)
+
+const person = {
+  fullName: "Sherlock Holmes",
+  address: {
+    street: "Baker Street",
+    city: "London",
+    house: "221b",
+  },
+};
+
+// let personJSON = JSON.stringify(person);
+// let personObject = JSON.parse(personJSON);
+let personCopy = JSON.parse(JSON.stringify(person));
+const {
+  fullName,
+  address: { street, city, house },
+} = person;
+console.log(`${fullName} \nstreet ${street} \ncity ${city} \nhouse ${house}`);
