@@ -38,3 +38,18 @@ console.log(getDiffDays("2020-01-01", "2020-01-17")); // 16
 console.log(getDiffDays("2020-01-01", "2020-03-15")); // 74
 console.log(getDiffDays("2222222222", "2020-03-15")); // Error: invalid date
 console.log(getDiffDays("2021-01-02", "2020-03-15")); // Error: your start date is later than end
+
+// 3. Создать функцию isWeekend которая будет проверять - выходной ли день
+// (суббота или воскресенье) в переданной дате и возвращать булевый результат. Пример вызова
+
+function isWeekend(date) {
+  let userDate = new Date(date);
+  if (userDate.getDay() === 0 || userDate.getDay() === 6) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isWeekend("2022-02-12")); // true
+console.log(isWeekend("2022-02-13")); // true
+console.log(isWeekend("2022-02-09")); // false
