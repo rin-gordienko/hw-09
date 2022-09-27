@@ -15,3 +15,26 @@ console.log(
     "0" + (birthdayDate.getMonth() + 1)
   }.${birthdayDate.getFullYear()}`
 );
+
+// 2. Напишите функции getDiffDays ,
+// которая будет принимать 2 даты (дата начала и дата окончания)
+// и возвращать кол-во дней которое прошло между этими датами.
+
+function getDiffDays(start, end) {
+  let startDate = new Date(start);
+  let endDate = new Date(end);
+  const MILLISECONDS_IN_A_DAY = 86400 * 1000;
+  if (isNaN(startDate) || isNaN(endDate)) {
+    return console.error("Invalid date");
+  } else if (endDate < startDate) {
+    return console.error("The end date can't be earlier than the start date");
+  } else {
+    let daysInBetween = (endDate - startDate) / MILLISECONDS_IN_A_DAY;
+    return daysInBetween;
+  }
+}
+
+console.log(getDiffDays("2020-01-01", "2020-01-17")); // 16
+console.log(getDiffDays("2020-01-01", "2020-03-15")); // 74
+console.log(getDiffDays("2222222222", "2020-03-15")); // Error: invalid date
+console.log(getDiffDays("2021-01-02", "2020-03-15")); // Error: your start date is later than end
