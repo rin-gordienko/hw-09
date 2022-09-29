@@ -43,11 +43,8 @@ console.log(getDiffDays("2021-01-02", "2020-03-15")); // Error: your start date 
 // (суббота или воскресенье) в переданной дате и возвращать булевый результат. Пример вызова
 
 function isWeekend(date) {
-  let userDate = new Date(date);
-  if (userDate.getDay() === 0 || userDate.getDay() === 6) {
-    return true;
-  }
-  return false;
+  const userDay = new Date(date).getDay();
+  return userDay === 0 || userDay === 6;
 }
 
 console.log(isWeekend("2022-02-12")); // true
